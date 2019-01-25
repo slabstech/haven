@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public float inputMovement;
 
-    Rigidbody rigid;
+    Rigidbody2D rigid;
 
     Vector3 velocity;
 
@@ -23,12 +23,12 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigid = this.GetComponent<Rigidbody>();
+        rigid = this.GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
-        rigid.AddForce(new Vector3(inputMovement, 0, 0) * movementForce, ForceMode.Acceleration);
+        rigid.AddForce(new Vector3(inputMovement, 0, 0) * movementForce, ForceMode2D.Force);
         if (rigid.velocity.magnitude > maxSpeed)
         {
             velocity = rigid.velocity.normalized * maxSpeed;
@@ -52,5 +52,13 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+
+        if (Input.GetKey("space"))
+            {
+                 if(this.GetComponent<Transform>().position.y < 10.2f)
+                 {
+                    rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
+                 }
+            }
     }
 }
