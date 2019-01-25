@@ -60,5 +60,13 @@ public class PlayerController : MonoBehaviour
                     rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
                  }
             }
+            checkGround();
+    }
+
+    void checkGround() {
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down);
+        Debug.DrawRay(transform.position + new Vector3(0, -2f, 0), Vector3.down, Color.red, 10f);
+        print(hit2D.distance);
+        
     }
 }
