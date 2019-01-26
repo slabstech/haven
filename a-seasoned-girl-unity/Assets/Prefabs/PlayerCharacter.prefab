@@ -414,10 +414,7 @@ MonoBehaviour:
   inAir: 0
   virtualCameraActive: -1
   arrow: {fileID: 0}
-<<<<<<< HEAD
-=======
   jumps: 2
->>>>>>> b3961434e617e809be8fcfdbecc806e6a6fb3736
 --- !u!50 &1877937191127367218
 Rigidbody2D:
   serializedVersion: 4
