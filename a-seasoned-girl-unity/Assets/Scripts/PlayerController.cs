@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject arrow;
 
+    public int jumps = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,17 +78,18 @@ public class PlayerController : MonoBehaviour
                 this.transform.localScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y, this.transform.localScale.z);
             }
         }
-        if ((inputMovement > 0 && inputMovement * 2 > virtualCameraActive) || (inputMovement < 0 && inputMovement * 2 < virtualCameraActive))
-        {
-
-        }
 
         if (Input.GetKeyDown("space"))
         {
-            if (IsGrounded())
+            if (jumps >= 0)
             {
+                if(jumps == 2) {
                 animator.SetTrigger("jump");
-                StartCoroutine("AddJumpingForce");
+                }
+                jumps--;
+                rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
+                animator.SetBool("inAir", true);
+                inAir = true;
             }
         }
 
@@ -113,6 +116,7 @@ public class PlayerController : MonoBehaviour
             {
                 inAir = false;
                 animator.SetBool("inAir", false);
+                jumps = 2;
             }
         }
 
@@ -128,9 +132,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator AddJumpingForce()
     {
         yield return new WaitForSeconds(0.2f);
-        rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
-        animator.SetBool("inAir", true);
-        inAir = true;
+
     }
 
     IEnumerator SpawnArrow()
