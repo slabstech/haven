@@ -23,5 +23,13 @@ public class ArrowScript : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         GetComponent<Collider2D>().isTrigger = false;
+        StartCoroutine("DestroyArrow");
+    }
+
+    IEnumerator DestroyArrow()
+    {
+        yield return new WaitForSeconds(2f);
+        print("asd");
+        Destroy(this.gameObject);
     }
 }
