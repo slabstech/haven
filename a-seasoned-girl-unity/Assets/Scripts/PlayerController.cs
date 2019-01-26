@@ -97,13 +97,13 @@ public class PlayerController : MonoBehaviour
         GUILayout.EndArea ();
 
 
-        bottomDialogStr = "Hello, this is Global Game Jam ";
+    /*     bottomDialogStr = " ";
 
         GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, Screen.height-Screen.height / 8 , Screen.width / 4, Screen.height / 4 ) );
         GUILayout.Box ( bottomDialogStr ); 
         
         GUILayout.EndArea ();
-
+    */
         bottomSpeakerStr = "Ori";
 
         GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 6, Screen.height-Screen.height / 6 , Screen.width / 8, Screen.height / 8 ) );
