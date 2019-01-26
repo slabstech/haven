@@ -18,13 +18,17 @@ public class PlayerController : MonoBehaviour
     public CinemachineVirtualCamera leftCamera;
     public CinemachineVirtualCamera rightCamera;
 
+    public Animator animator;
+
     public int virtualCameraActive = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = this.GetComponent<Rigidbody2D>();
-    }
+        animator = this.GetComponent<Animator>();
+    }        
+
 
     void FixedUpdate()
     {
@@ -41,6 +45,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         inputMovement = Input.GetAxis("Horizontal");
+        animator.SetFloat("speed", Mathf.Abs(inputMovement));
         if (inputMovement == virtualCameraActive)
         {
             virtualCameraActive *= -1;
@@ -48,27 +53,30 @@ public class PlayerController : MonoBehaviour
             {
                 leftCamera.gameObject.SetActive(true);
                 rightCamera.gameObject.SetActive(false);
+                animator.SetTrigger("turnRight");
             }
             else
             {
                 leftCamera.gameObject.SetActive(false);
                 rightCamera.gameObject.SetActive(true);
+                animator.SetTrigger("turnLeft");
 
             }
         }
 
-        if (Input.GetKey("space"))
+        if (Input.GetKeyDown("space"))
         {
             if (IsGrounded())
             {
                 rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
             }
         }
+        IsGrounded();
     }
 
     bool IsGrounded()
     {
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, 9);
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down);
         return hit2D.distance < 0.1;
 
     }
