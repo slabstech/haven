@@ -20,9 +20,17 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject Bow;
+    public GameObject MeeleWeapon;
+
     public bool meleeActive = false;
+    public bool bowActive = false;
+
+    public bool inAir = false;
 
     public int virtualCameraActive = 1;
+
+    public GameObject arrow;
 
     // Start is called before the first frame update
     void Start()
@@ -51,45 +59,95 @@ public class PlayerController : MonoBehaviour
         if (inputMovement == virtualCameraActive)
         {
             virtualCameraActive *= -1;
-            if (virtualCameraActive == -1)
-            {
-                leftCamera.gameObject.SetActive(true);
-                rightCamera.gameObject.SetActive(false);
-                animator.SetTrigger("turnRight");
-            }
-            else
-            {
-                leftCamera.gameObject.SetActive(false);
-                rightCamera.gameObject.SetActive(true);
-                animator.SetTrigger("turnLeft");
-
-            }
+            leftCamera.gameObject.SetActive(virtualCameraActive == -1);
+            rightCamera.gameObject.SetActive(virtualCameraActive != -1);
+            this.transform.localScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y, this.transform.localScale.z);
         }
 
         if (Input.GetKeyDown("space"))
         {
             if (IsGrounded())
             {
-                rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
+                animator.SetTrigger("jump");
+                StartCoroutine("AddJumpingForce");
             }
         }
 
-        if (Input.GetButton("Fire1") && meleeActive == false)
+        if (Input.GetButtonDown("Fire2") && meleeActive == false)
         {
             StartMeleeAttack();
         }
+
+        if (Input.GetButtonDown("Fire1") && bowActive == false)
+        {
+            StartBowAttack();
+
+
+        }
+        if (Input.GetButtonUp("Fire1") && bowActive == true)
+        {
+            ShootBow();
+        }
+
+        if (inAir == true)
+        {
+            // check for landing
+            if (rigid.velocity.y <= 0 && IsGrounded())
+            {
+                inAir = false;
+                animator.SetBool("inAir", false);
+            }
+        }
+
         IsGrounded();
     }
 
     bool IsGrounded()
     {
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down);
-        return hit2D.distance < 0.1;
+        return hit2D.distance < 0.2;
+    }
+
+    IEnumerator AddJumpingForce()
+    {
+        yield return new WaitForSeconds(0.2f);
+        rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
+        animator.SetBool("inAir", true);
+        inAir = true;
+    }
+
+    IEnumerator SpawnArrow()
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (bowActive == true)
+        {
+            arrow = Instantiate<GameObject>(Resources.Load("Arrow", typeof(GameObject)) as GameObject, this.transform);
+        }
+
     }
 
     void StartMeleeAttack()
     {
         animator.SetTrigger("meleeActive");
+    }
+
+    void StartBowAttack()
+    {
+        animator.SetBool("bowActive", true);
+        StartCoroutine("SpawnArrow");
+        bowActive = true;
+    }
+
+    void ShootBow()
+    {
+        animator.SetBool("bowActive", false);
+        bowActive = false;
+        if(arrow != null) {
+            arrow.GetComponent<Rigidbody2D>().isKinematic = false;
+            arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(1000,0), ForceMode2D.Force);
+            arrow = null;
+        }
+
     }
 
     public void EndMeleeAttack()
