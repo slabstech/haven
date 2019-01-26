@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 7
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,13 +34,13 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: -1
-    wrapV: -1
+    wrapU: 1
+    wrapV: 1
     wrapW: -1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,9 +49,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
-  spriteTessellationDetail: -1
-  textureType: 0
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0.67
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -69,13 +69,132 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
-    physicsShape: []
+    physicsShape:
+    - - {x: -960, y: -540}
+      - {x: 960, y: -540}
+      - {x: 960, y: -405.00308}
+      - {x: -960, y: -404.963}
+    - - {x: -698, y: 146}
+      - {x: -689, y: 151}
+      - {x: -682, y: 155}
+      - {x: -673, y: 160}
+      - {x: -666, y: 164}
+      - {x: -657, y: 169}
+      - {x: -650, y: 173}
+      - {x: -641, y: 178}
+      - {x: -634, y: 182}
+      - {x: -625, y: 187}
+      - {x: -618, y: 191}
+      - {x: -609, y: 196}
+      - {x: -602, y: 200}
+      - {x: -593, y: 205}
+      - {x: -586, y: 209}
+      - {x: -577, y: 214}
+      - {x: -570, y: 218}
+      - {x: -561, y: 223}
+      - {x: -554, y: 227}
+      - {x: -545, y: 232}
+      - {x: -538, y: 236}
+      - {x: -529, y: 241}
+      - {x: -522, y: 245}
+      - {x: -513, y: 250}
+      - {x: -506, y: 254}
+      - {x: -497, y: 259}
+      - {x: -490, y: 263}
+      - {x: -481, y: 269}
+      - {x: -256, y: 269}
+      - {x: -254, y: 271}
+      - {x: -254, y: 311}
+      - {x: -226, y: 311}
+      - {x: -226, y: 271}
+      - {x: -224, y: 269}
+      - {x: -16, y: 269}
+      - {x: -14, y: 271}
+      - {x: -14, y: 311}
+      - {x: 14, y: 311}
+      - {x: 14, y: 271}
+      - {x: 16, y: 269}
+      - {x: 224, y: 269}
+      - {x: 226, y: 271}
+      - {x: 226, y: 311}
+      - {x: 254, y: 311}
+      - {x: 254, y: 271}
+      - {x: 256, y: 269}
+      - {x: 481, y: 269}
+      - {x: 490, y: 263}
+      - {x: 497, y: 259}
+      - {x: 506, y: 254}
+      - {x: 513, y: 250}
+      - {x: 522, y: 245}
+      - {x: 529, y: 241}
+      - {x: 538, y: 236}
+      - {x: 545, y: 232}
+      - {x: 554, y: 227}
+      - {x: 561, y: 223}
+      - {x: 570, y: 218}
+      - {x: 577, y: 214}
+      - {x: 586, y: 209}
+      - {x: 593, y: 205}
+      - {x: 600, y: 202}
+      - {x: 602, y: 200}
+      - {x: 609, y: 196}
+      - {x: 616, y: 193}
+      - {x: 618, y: 191}
+      - {x: 625, y: 187}
+      - {x: 632, y: 184}
+      - {x: 634, y: 182}
+      - {x: 641, y: 178}
+      - {x: 648, y: 175}
+      - {x: 650, y: 173}
+      - {x: 657, y: 169}
+      - {x: 664, y: 166}
+      - {x: 666, y: 164}
+      - {x: 673, y: 160}
+      - {x: 680, y: 157}
+      - {x: 682, y: 155}
+      - {x: 689, y: 151}
+      - {x: 696, y: 148}
+      - {x: 698, y: 146}
+      - {x: 705, y: 142}
+      - {x: 712, y: 139}
+      - {x: 714, y: 137}
+      - {x: 721, y: 133}
+      - {x: 960, y: 133}
+      - {x: 960, y: 540}
+      - {x: -960, y: 540}
+      - {x: -960, y: 133}
+      - {x: -721, y: 133}
+      - {x: -714, y: 137}
+      - {x: -712, y: 139}
+      - {x: -705, y: 142}
     bones: []
-    spriteID: 
+    spriteID: 420c0081de0c4414c99bf1e04597d676
     vertices: []
     indices: 
     edges: []
