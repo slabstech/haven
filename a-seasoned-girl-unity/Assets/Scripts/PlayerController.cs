@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            if (jumps >= 0)
+            if (jumps > 1)
             {
                 if(jumps == 2) {
                 animator.SetTrigger("jump");
