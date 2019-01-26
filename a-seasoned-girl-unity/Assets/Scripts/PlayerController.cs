@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 200;
     public float maxSpeed = 200;
 
+    public float currentLife = 100;
+    public float maxLife = 100;
+
     public float inputMovement;
 
     Rigidbody2D rigid;
@@ -34,11 +37,19 @@ public class PlayerController : MonoBehaviour
 
     public int jumps = 2;
 
+    public GameObject[] enemies;
+
+    Vector3 startPosition;
+
+
     // Start is called before the first frame update
     void Start()
     {
+
         rigid = this.GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        startPosition = transform.position;
     }
 
 
@@ -50,7 +61,6 @@ public class PlayerController : MonoBehaviour
             velocity = rigid.velocity.normalized * maxSpeed;
             rigid.velocity = velocity;
         }
-        //    Vector3 lookDirecton = new Vector3(look.x, 0, look.y);
     }
 
     // Update is called once per frame
@@ -102,9 +112,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && bowActive == false)
         {
             StartBowAttack();
-
-
         }
+
         if (Input.GetButtonUp("Fire1") && bowActive == true)
         {
             ShootBow();
@@ -127,25 +136,23 @@ public class PlayerController : MonoBehaviour
     bool IsGrounded()
     {
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position + new Vector3(0, -0.05f, 0), Vector2.down);
-        Debug.DrawRay(transform.position + new Vector3(0, -0.03f, 0), Vector2.down, Color.red, 10f);
-     //   print(hit2D.distance);
+        // Debug.DrawRay(transform.position + new Vector3(0, -0.03f, 0), Vector2.down, Color.red, 10f);
         return hit2D.distance < 0.2;
     }
 
     IEnumerator AddJumpingForce()
     {
         yield return new WaitForSeconds(0.2f);
-
     }
 
     IEnumerator SpawnArrow()
     {
         yield return new WaitForSeconds(0.2f);
+
         if (bowActive == true)
         {
             arrow = Instantiate<GameObject>(Resources.Load("Arrow", typeof(GameObject)) as GameObject, this.transform);
         }
-
     }
 
     void StartMeleeAttack()
@@ -156,27 +163,33 @@ public class PlayerController : MonoBehaviour
     void StartBowAttack()
     {
         animator.SetBool("bowActive", true);
-        StartCoroutine("SpawnArrow");
         bowActive = true;
+        StartCoroutine("SpawnArrow");
     }
 
     void ShootBow()
     {
         animator.SetBool("bowActive", false);
         bowActive = false;
+
         if (arrow != null)
         {
             arrow.GetComponent<Rigidbody2D>().isKinematic = false;
             arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1000 * virtualCameraActive, 0), ForceMode2D.Force);
             arrow.transform.SetParent(null);
+            arrow.GetComponent<Collider2D>().isTrigger = true;
+            arrow.GetComponent<Collider2D>().enabled = true;
             arrow = null;
         }
+    }
 
+    public void Die()
+    {
+        transform.position = startPosition;
     }
 
     public void EndMeleeAttack()
     {
         meleeActive = false;
-
     }
 }

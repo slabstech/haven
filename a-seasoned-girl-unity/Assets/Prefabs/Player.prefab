@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4843923662638984020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1705230135885567310}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6860715120059995828}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4598915718983857730}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2910213814769855341}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5768235949798975001}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7438774011333181834}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1858481553197469561}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6681734925916413499}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5451655325174148604}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4349729767348844177}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2317733726283285316}
   - component: {fileID: 8840846974905945477}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player_Weapon_Melee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8239413084860534149}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6714899899302162930}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1003,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8990884024686597835}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1035,7 +1035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3021697841767427504}
   - component: {fileID: 2672708112933682074}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player_Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1232,9 +1232,9 @@ GameObject:
   - component: {fileID: 207574542013208234}
   - component: {fileID: 7218398840671999081}
   - component: {fileID: 4149000652581656981}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PlayerObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1318,6 +1318,8 @@ MonoBehaviour:
   movementForce: 16
   jumpForce: 450
   maxSpeed: 16
+  currentLife: 100
+  maxLife: 100
   inputMovement: 0
   leftCamera: {fileID: 7918854533219162803}
   rightCamera: {fileID: 6720321069983415946}
@@ -1330,6 +1332,7 @@ MonoBehaviour:
   virtualCameraActive: -1
   arrow: {fileID: 0}
   jumps: 2
+  enemies: []
 --- !u!50 &9096909200091630907
 Rigidbody2D:
   serializedVersion: 4
@@ -1429,7 +1432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2576916198119465704}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1461,7 +1464,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7616769419344881163}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1492,7 +1495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3721133563296435011}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,7 +1528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5841993431309262420}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bone_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
