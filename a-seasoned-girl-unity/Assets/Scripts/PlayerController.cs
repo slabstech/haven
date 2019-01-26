@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    public bool meleeActive = false;
+
     public int virtualCameraActive = 1;
 
     // Start is called before the first frame update
@@ -27,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         rigid = this.GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();
-    }        
+    }
 
 
     void FixedUpdate()
@@ -71,6 +73,11 @@ public class PlayerController : MonoBehaviour
                 rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
             }
         }
+
+        if (Input.GetButton("Fire1") && meleeActive == false)
+        {
+            StartMeleeAttack();
+        }
         IsGrounded();
     }
 
@@ -78,6 +85,16 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down);
         return hit2D.distance < 0.1;
+    }
+
+    void StartMeleeAttack()
+    {
+        animator.SetTrigger("meleeActive");
+    }
+
+    public void EndMeleeAttack()
+    {
+        meleeActive = false;
 
     }
 }
