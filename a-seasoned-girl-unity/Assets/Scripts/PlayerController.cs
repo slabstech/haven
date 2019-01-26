@@ -34,14 +34,17 @@ public class PlayerController : MonoBehaviour
 
     public int jumps = 2;
 
+
+    public bool isArrowRespawm = true ;  // Control arrow respawn feature 
+
     public int timeLeft ; //Seconds Overall
     private int currentArrows = 5;
 
     public int MAX_ARROWS = 10 ;
 
-    int spawm_arrows = 5;
+    public int spawm_arrows = 5;
 
-    int respawm_time = 10;
+    public int respawm_time = 10;
     
 
 
@@ -68,9 +71,12 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnGUI () {
-        GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, 10, Screen.width / 4, Screen.height / 4 ) );
-        GUILayout.Box ( "Arrows->"+ currentArrows.ToString () + ": RespawnTime : " +  timeLeft); 
-        GUILayout.EndArea ();
+        if( isArrowRespawm == true )
+        {
+            GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, 10, Screen.width / 4, Screen.height / 4 ) );
+            GUILayout.Box ( "Arrows->"+ currentArrows.ToString () + ": RespawnTime : " +  timeLeft); 
+            GUILayout.EndArea ();
+        }
     }
     // Update is called once per frame
     void Update()
@@ -118,7 +124,7 @@ public class PlayerController : MonoBehaviour
             StartMeleeAttack();
         }
 
-        if(currentArrows > 0)
+        if( currentArrows > 0)
         {
             if (Input.GetButtonDown("Fire1") && bowActive == false)
             {
@@ -128,7 +134,10 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonUp("Fire1") && bowActive == true)
             {
                 ShootBow();
-                currentArrows--;
+                if(isArrowRespawm == true)
+                {
+                    currentArrows--; 
+                }
             }
         }
 
@@ -206,17 +215,20 @@ public class PlayerController : MonoBehaviour
   //Simple Coroutine
     IEnumerator LoseTime()
     {
-        while (true) {
-        yield return new WaitForSeconds (1);
-        timeLeft--; 
-        if(timeLeft < 1 )
-        {
-            timeLeft = respawm_time;
-            int arrowCount = currentArrows + spawm_arrows;
-            if((arrowCount) < MAX_ARROWS)
-                {currentArrows += spawm_arrows;
+        if(isArrowRespawm == true ){
+            while (true) {
+                yield return new WaitForSeconds (1);
+                timeLeft--; 
+                if(timeLeft < 1 )
+                {
+                    timeLeft = respawm_time;
+                    int arrowCount = currentArrows + spawm_arrows;
+                    if((arrowCount) < MAX_ARROWS)
+                    {
+                        currentArrows += spawm_arrows;
+                    }
                 }
-        }
+            }
         }
     }
 }
