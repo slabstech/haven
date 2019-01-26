@@ -61,8 +61,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
+  m_HorizontalDamping: 1
+  m_VerticalDamping: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_DeadZoneWidth: 0
@@ -414,7 +414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3032815544085806636}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4603418, y: -0.73987466, z: -11.799793}
+  m_LocalPosition: {x: 1.4692476, y: -0.73987466, z: -11.799793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5627136456604995896}
@@ -722,7 +722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6929042175631744455}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4603418, y: -0.73987466, z: -11.799793}
+  m_LocalPosition: {x: 155.66724, y: -5.3898745, z: -11.799793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6172720219339479447}
@@ -917,7 +917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7218226405150874790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.8729913, y: -0.73987466, z: -11.799793}
+  m_LocalPosition: {x: -3.8818974, y: -0.73987466, z: -11.799793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8096015142911785231}
@@ -1165,8 +1165,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 10
   m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
+  m_HorizontalDamping: 1
+  m_VerticalDamping: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_DeadZoneWidth: 0
@@ -1230,8 +1230,8 @@ GameObject:
   - component: {fileID: 647241883723697079}
   - component: {fileID: 9096909200091630907}
   - component: {fileID: 207574542013208234}
-  - component: {fileID: 3610880055285872426}
   - component: {fileID: 7218398840671999081}
+  - component: {fileID: 4149000652581656981}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -1370,101 +1370,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!60 &3610880055285872426
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8349263480008847356}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.41, y: 0.877}
-    newSize: {x: 1.003, y: 1.274}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.018000001, y: 0.07300001}
-      - {x: -0.019000001, y: 0.287}
-      - {x: -0.012, y: 0.284}
-      - {x: -0.002, y: 0.28100002}
-      - {x: 0.026, y: 0.28}
-      - {x: 0.033, y: 0.284}
-      - {x: 0.031000001, y: 0.071}
-      - {x: 0.031000001, y: 0}
-      - {x: 0.08400001, y: 0}
-      - {x: 0.079, y: 0.015000001}
-      - {x: 0.07300001, y: 0.071}
-      - {x: 0.071, y: 0.07300001}
-      - {x: 0.072000004, y: 0.27400002}
-      - {x: 0.075, y: 0.328}
-      - {x: 0.087000005, y: 0.37}
-      - {x: 0.08400001, y: 0.42900002}
-      - {x: 0.09900001, y: 0.46}
-      - {x: 0.11000001, y: 0.48200002}
-      - {x: 0.13100001, y: 0.36100003}
-      - {x: 0.13800001, y: 0.335}
-      - {x: 0.164, y: 0.316}
-      - {x: 0.171, y: 0.335}
-      - {x: 0.171, y: 0.36600003}
-      - {x: 0.15, y: 0.492}
-      - {x: 0.133, y: 0.53300005}
-      - {x: 0.134, y: 0.55}
-      - {x: 0.123, y: 0.586}
-      - {x: 0.097, y: 0.64100003}
-      - {x: 0.064, y: 0.68200004}
-      - {x: 0.076000005, y: 0.69100004}
-      - {x: 0.095000006, y: 0.74300003}
-      - {x: 0.089, y: 0.78900003}
-      - {x: 0.072000004, y: 0.827}
-      - {x: 0.036000002, y: 0.85300004}
-      - {x: -0.008, y: 0.85300004}
-      - {x: -0.037, y: 0.84000003}
-      - {x: -0.057000004, y: 0.81500006}
-      - {x: -0.07300001, y: 0.776}
-      - {x: -0.069000006, y: 0.726}
-      - {x: -0.063, y: 0.70900005}
-      - {x: -0.085, y: 0.665}
-      - {x: -0.11100001, y: 0.624}
-      - {x: -0.132, y: 0.55600005}
-      - {x: -0.14500001, y: 0.49}
-      - {x: -0.15900001, y: 0.39800003}
-      - {x: -0.15900001, y: 0.34100002}
-      - {x: -0.15400001, y: 0.319}
-      - {x: -0.143, y: 0.31800002}
-      - {x: -0.125, y: 0.33900002}
-      - {x: -0.120000005, y: 0.36100003}
-      - {x: -0.10300001, y: 0.492}
-      - {x: -0.07300001, y: 0.42600003}
-      - {x: -0.07300001, y: 0.384}
-      - {x: -0.061000004, y: 0.33400002}
-      - {x: -0.057000004, y: 0.33100003}
-      - {x: -0.059000004, y: 0.20500001}
-      - {x: -0.059000004, y: 0}
-      - {x: -0.008, y: 0}
-      - {x: -0.008, y: 0.002}
-      - {x: -0.017, y: 0.018000001}
-      - {x: -0.016, y: 0.072000004}
-    - - {x: -0.109000005, y: 0.74500006}
-      - {x: -0.132, y: 0.734}
-      - {x: -0.134, y: 0.72400004}
-      - {x: -0.134, y: 0.683}
-      - {x: -0.11000001, y: 0.683}
-      - {x: -0.082, y: 0.68700004}
-      - {x: -0.07, y: 0.70100003}
-      - {x: -0.07, y: 0.73800004}
-      - {x: -0.076000005, y: 0.74500006}
 --- !u!114 &7218398840671999081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,8 +1402,24 @@ MonoBehaviour:
   - {fileID: 2576916198119465704}
   - {fileID: 4843923662638984020}
   m_Bounds:
-    m_Center: {x: 0.12317476, y: -0.0025722831, z: 0}
-    m_Extent: {x: 0.53257245, y: 0.20568505, z: 0}
+    m_Center: {x: 0.07634506, y: -0.0025722831, z: 0}
+    m_Extent: {x: 0.48574278, y: 0.20568505, z: 0}
+--- !u!70 &4149000652581656981
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349263480008847356}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.004246235, y: 0.41857302}
+  m_Size: {x: 0.36371917, y: 0.88469654}
+  m_Direction: 0
 --- !u!1 &8418799690194931743
 GameObject:
   m_ObjectHideFlags: 0
