@@ -83,8 +83,9 @@ public class PlayerController : MonoBehaviour
         {
             if (jumps > 1)
             {
-                if(jumps == 2) {
-                animator.SetTrigger("jump");
+                if (jumps == 2)
+                {
+                    animator.SetTrigger("jump");
                 }
                 jumps--;
                 rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
@@ -125,7 +126,9 @@ public class PlayerController : MonoBehaviour
 
     bool IsGrounded()
     {
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down);
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position + new Vector3(0, -0.05f, 0), Vector2.down);
+        Debug.DrawRay(transform.position + new Vector3(0, -0.03f, 0), Vector2.down, Color.red, 10f);
+     //   print(hit2D.distance);
         return hit2D.distance < 0.2;
     }
 
