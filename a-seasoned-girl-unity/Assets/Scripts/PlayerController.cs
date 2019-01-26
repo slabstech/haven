@@ -40,13 +40,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputMovement = -Input.GetAxis("Horizontal");
-        if(inputMovement == virtualCameraActive) {
+        inputMovement = Input.GetAxis("Horizontal");
+        if (inputMovement == virtualCameraActive)
+        {
             virtualCameraActive *= -1;
-            if(virtualCameraActive == 1) {
+            if (virtualCameraActive == -1)
+            {
                 leftCamera.gameObject.SetActive(true);
                 rightCamera.gameObject.SetActive(false);
-            } else {
+            }
+            else
+            {
                 leftCamera.gameObject.SetActive(false);
                 rightCamera.gameObject.SetActive(true);
 
@@ -54,19 +58,18 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Input.GetKey("space"))
+        {
+            if (IsGrounded())
             {
-                 if(this.GetComponent<Transform>().position.y < 10.2f)
-                 {
-                    rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
-                 }
+                rigid.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Force);
             }
-            checkGround();
+        }
     }
 
-    void checkGround() {
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down);
-        Debug.DrawRay(transform.position + new Vector3(0, -2f, 0), Vector3.down, Color.red, 10f);
-        print(hit2D.distance);
-        
+    bool IsGrounded()
+    {
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, 9);
+        return hit2D.distance < 0.1;
+
     }
 }

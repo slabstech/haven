@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 7
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,13 +34,13 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: -1
-    wrapV: -1
+    wrapU: 1
+    wrapV: 1
     wrapW: -1
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,9 +49,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
-  spriteTessellationDetail: -1
-  textureType: 0
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 1
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -69,13 +69,93 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline: []
-    physicsShape: []
+    outline:
+    - - {x: 118, y: -364}
+      - {x: 118, y: -421}
+      - {x: -240, y: -421}
+      - {x: -242, y: -423}
+      - {x: -242, y: -479}
+      - {x: -960, y: -480}
+      - {x: -960, y: -540}
+      - {x: 482, y: -540}
+      - {x: 482, y: -364}
+      - {x: 480, y: -362}
+      - {x: 120, y: -362}
+    - - {x: 572, y: -158}
+      - {x: 570, y: -160}
+      - {x: 570, y: -277}
+      - {x: 572, y: -279}
+      - {x: 934, y: -279}
+      - {x: 934, y: -158}
+    - - {x: -960, y: 2}
+      - {x: -960, y: -119}
+      - {x: 120, y: -119}
+      - {x: 122, y: -117}
+      - {x: 122, y: 0}
+      - {x: 120, y: 2}
+    - - {x: 120, y: 131}
+      - {x: 118, y: 129}
+      - {x: 118, y: 12}
+      - {x: 120, y: 10}
+      - {x: 842, y: 10}
+      - {x: 842, y: 131}
+    physicsShape:
+    - - {x: 118, y: -364}
+      - {x: 118, y: -421}
+      - {x: -240, y: -421}
+      - {x: -242, y: -423}
+      - {x: -242, y: -479}
+      - {x: -960, y: -480}
+      - {x: -960, y: -540}
+      - {x: 482, y: -540}
+      - {x: 482, y: -364}
+      - {x: 480, y: -362}
+      - {x: 120, y: -362}
+    - - {x: 572, y: -158}
+      - {x: 570, y: -160}
+      - {x: 570, y: -277}
+      - {x: 572, y: -279}
+      - {x: 934, y: -279}
+      - {x: 934, y: -158}
+    - - {x: -960, y: 2}
+      - {x: -960, y: -119}
+      - {x: 120, y: -119}
+      - {x: 122, y: -117}
+      - {x: 122, y: 0}
+      - {x: 120, y: 2}
+    - - {x: 120, y: 131}
+      - {x: 118, y: 129}
+      - {x: 118, y: 12}
+      - {x: 120, y: 10}
+      - {x: 842, y: 10}
+      - {x: 842, y: 131}
     bones: []
-    spriteID: 
+    spriteID: 6b586a6c0aaf49248ae36f80d3844c23
     vertices: []
     indices: 
     edges: []
