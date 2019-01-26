@@ -24,9 +24,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
 
     public GameObject Bow;
-    public GameObject MeeleWeapon;
 
-    public bool meleeActive = false;
     public bool bowActive = false;
 
     public bool inAir = false;
@@ -104,10 +102,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire2") && meleeActive == false)
-        {
-            StartMeleeAttack();
-        }
 
         if (Input.GetButtonDown("Fire1") && bowActive == false)
         {
@@ -155,11 +149,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void StartMeleeAttack()
-    {
-        animator.SetTrigger("meleeActive");
-    }
-
     void StartBowAttack()
     {
         animator.SetBool("bowActive", true);
@@ -186,10 +175,5 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         transform.position = startPosition;
-    }
-
-    public void EndMeleeAttack()
-    {
-        meleeActive = false;
     }
 }

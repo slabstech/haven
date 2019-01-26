@@ -414,7 +414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3032815544085806636}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4692476, y: -0.73987466, z: -11.799793}
+  m_LocalPosition: {x: 1.4603418, y: -0.73987466, z: -11.799793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5627136456604995896}
@@ -722,7 +722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6929042175631744455}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4692476, y: -0.73987466, z: -11.799793}
+  m_LocalPosition: {x: 1.4603418, y: -0.73987466, z: -11.799793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6172720219339479447}
@@ -917,7 +917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7218226405150874790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.8818974, y: -0.73987466, z: -11.799793}
+  m_LocalPosition: {x: -3.8729913, y: -0.73987466, z: -11.799793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8096015142911785231}
@@ -1325,8 +1325,6 @@ MonoBehaviour:
   rightCamera: {fileID: 6720321069983415946}
   animator: {fileID: 0}
   Bow: {fileID: 7923141208482340074}
-  MeeleWeapon: {fileID: 6123838725564637256}
-  meleeActive: 0
   bowActive: 0
   inAir: 0
   virtualCameraActive: -1
