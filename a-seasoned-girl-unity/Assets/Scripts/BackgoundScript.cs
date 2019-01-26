@@ -30,8 +30,7 @@ public class BackgoundScript : MonoBehaviour
     void Update()
     {
         float positionX = (playerStartPosition.x - player.transform.position.x) * speed;
-        float positionY = (playerStartPosition.y - player.transform.position.y) * speed / 10;
         positionX = positionX % 18.44f;
-        transform.localPosition = new Vector3(positionX, positionY + yOffset, 1f);
+        transform.localPosition = new Vector3(positionX, yOffset, 1f);
     }
 }
