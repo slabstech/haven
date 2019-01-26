@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7603473067536989444
+--- !u!1 &570193993241446503
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4849907463157178209}
-  - component: {fileID: 37955072748972153}
-  - component: {fileID: 5292977073193947016}
+  - component: {fileID: 8647511348592762678}
+  - component: {fileID: 488412068592591999}
+  - component: {fileID: 3998311406365855574}
   m_Layer: 0
-  m_Name: balconyRight
+  m_Name: dumpsterRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4849907463157178209
+--- !u!4 &8647511348592762678
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603473067536989444}
+  m_GameObject: {fileID: 570193993241446503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.11, y: 0, z: 0}
+  m_LocalPosition: {x: -1.0018908, y: -2.926803, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &37955072748972153
+--- !u!212 &488412068592591999
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603473067536989444}
+  m_GameObject: {fileID: 570193993241446503}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -66,43 +66,66 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -560527327
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 19bb664430cce7049b3486880aa0c464, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 410679881c3b2874284150e49a229e67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.66, y: 0.8}
+  m_Size: {x: 0.97, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5292977073193947016
-BoxCollider2D:
+--- !u!60 &3998311406365855574
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603473067536989444}
+  m_GameObject: {fileID: 570193993241446503}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.27362004}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.66, y: 0.8}
-    newSize: {x: 0.66, y: 0.8}
+    oldSize: {x: 0.97, y: 1.28}
+    newSize: {x: 0.97, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.66, y: 0.25275993}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.235, y: -0.57}
+      - {x: 0.24499999, y: -0.64}
+      - {x: 0.31618106, y: -0.63653994}
+      - {x: 0.31968266, y: -0.47156096}
+      - {x: 0.41981918, y: -0.44626546}
+      - {x: 0.4340639, y: 0.3210106}
+      - {x: 0.4934895, y: 0.32809305}
+      - {x: 0.4827299, y: 0.37201142}
+      - {x: 0.48045987, y: 0.41060328}
+      - {x: 0.48045987, y: 0.5036781}
+      - {x: 0.31413794, y: 0.585948}
+      - {x: 0.06793094, y: 0.63999987}
+      - {x: -0.23137927, y: 0.6082182}
+      - {x: -0.39548838, y: 0.5227585}
+      - {x: -0.4781897, y: 0.4559481}
+      - {x: -0.485, y: 0.39843273}
+      - {x: -0.4242431, y: 0.40486693}
+      - {x: -0.36002064, y: -0.45270038}
+      - {x: -0.31158173, y: -0.45270038}
+      - {x: -0.345, y: -0.64}
+      - {x: -0.24499999, y: -0.64}
+      - {x: -0.21499999, y: -0.58}
+      - {x: -0.225, y: -0.48999998}
+      - {x: 0.24499999, y: -0.48}
