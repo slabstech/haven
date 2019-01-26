@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
     
     public GameObject[] enemies;
 
+    public string topGameDateStr = "" ;
+
+    public string bottomDialogStr = "" ;
+
+    public string bottomSpeakerStr = "" ;
+
     Vector3 startPosition;
     // Start is called before the first frame update
     void Start()
@@ -76,12 +82,41 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnGUI () {
+
         if( isArrowRespawm == true )
         {
-            GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, 10, Screen.width / 4, Screen.height / 4 ) );
-            GUILayout.Box ( "Arrows->"+ currentArrows.ToString () + ": RespawnTime : " +  timeLeft); 
-            GUILayout.EndArea ();
+            topGameDateStr = "Arrows : "+ currentArrows.ToString () + ", Respawn : " +  timeLeft ; 
+        
         }
+        else{
+            topGameDateStr = "Empty" ;
+        }
+
+        
+        GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, 10, Screen.width / 4, Screen.height / 4 ) );
+        GUILayout.Box ( topGameDateStr ); 
+        
+        GUILayout.EndArea ();
+
+
+        bottomDialogStr = "Hello, this is Global Game Jam ";
+
+        GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, Screen.height-Screen.height / 8 , Screen.width / 4, Screen.height / 4 ) );
+        GUILayout.Box ( bottomDialogStr ); 
+        
+        GUILayout.EndArea ();
+
+        bottomSpeakerStr = "Ori";
+
+        GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 6, Screen.height-Screen.height / 6 , Screen.width / 8, Screen.height / 8 ) );
+        GUILayout.Box ( bottomSpeakerStr ); 
+        
+        GUILayout.EndArea ();
+
+
+        
+
+
     }
     // Update is called once per frame
     void Update()
