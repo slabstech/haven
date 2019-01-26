@@ -35,17 +35,29 @@ public class PlayerController : MonoBehaviour
 
     public int jumps = 2;
 
+    public bool isArrowRespawm = true ;  // Control arrow respawn feature 
+
+    public int timeLeft ; //Seconds Overall
+    private int currentArrows = 5;
+
+    public int MAX_ARROWS = 10 ;
+
+    public int spawm_arrows = 5;
+
+    public int respawm_time = 10;
+    
     public GameObject[] enemies;
 
     Vector3 startPosition;
-
-
     // Start is called before the first frame update
     void Start()
     {
 
         rigid = this.GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();
+        StartCoroutine("LoseTime");
+        Time.timeScale = 1; //Just making sure that the timeScale is right
+        timeLeft = respawm_time;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         startPosition = transform.position;
     }
@@ -61,6 +73,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnGUI () {
+        if( isArrowRespawm == true )
+        {
+            GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, 10, Screen.width / 4, Screen.height / 4 ) );
+            GUILayout.Box ( "Arrows->"+ currentArrows.ToString () + ": RespawnTime : " +  timeLeft); 
+            GUILayout.EndArea ();
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -108,10 +128,15 @@ public class PlayerController : MonoBehaviour
             StartBowAttack();
         }
 
-        if (Input.GetButtonUp("Fire1") && bowActive == true)
-        {
-            ShootBow();
-        }
+        
+            if (Input.GetButtonUp("Fire1") && bowActive == true)
+            {
+                ShootBow();
+                if(isArrowRespawm == true)
+                {
+                    currentArrows--; 
+                }
+            }
 
         if (inAir == true)
         {
@@ -175,5 +200,26 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         transform.position = startPosition;
+    }
+
+    
+  //Simple Coroutine
+    IEnumerator LoseTime()
+    {
+        if(isArrowRespawm == true ){
+            while (true) {
+                yield return new WaitForSeconds (1);
+                timeLeft--; 
+                if(timeLeft < 1 )
+                {
+                    timeLeft = respawm_time;
+                    int arrowCount = currentArrows + spawm_arrows;
+                    if((arrowCount) < MAX_ARROWS)
+                    {
+                        currentArrows += spawm_arrows;
+                    }
+                }
+            }
+        }
     }
 }
