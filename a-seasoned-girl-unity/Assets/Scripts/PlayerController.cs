@@ -128,17 +128,8 @@ public class PlayerController : MonoBehaviour
         {
             StartMeleeAttack();
         }
-
-<<<<<<< HEAD
+        
         if( currentArrows > 0)
-=======
-        if (Input.GetButtonDown("Fire1") && bowActive == false)
-        {
-            StartBowAttack();
-        }
-
-        if (Input.GetButtonUp("Fire1") && bowActive == true)
->>>>>>> fb9f74f39c90720a36ff9b57f3e359407b3f1ab8
         {
             if (Input.GetButtonDown("Fire1") && bowActive == false)
             {
