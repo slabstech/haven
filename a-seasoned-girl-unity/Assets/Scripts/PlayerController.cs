@@ -56,12 +56,29 @@ public class PlayerController : MonoBehaviour
     {
         inputMovement = Input.GetAxis("Horizontal");
         animator.SetFloat("speed", Mathf.Abs(inputMovement));
-        if (inputMovement == virtualCameraActive)
+        if (virtualCameraActive == 1)
         {
-            virtualCameraActive *= -1;
-            leftCamera.gameObject.SetActive(virtualCameraActive == -1);
-            rightCamera.gameObject.SetActive(virtualCameraActive != -1);
-            this.transform.localScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y, this.transform.localScale.z);
+            if (inputMovement > 0.5)
+            {
+                virtualCameraActive *= -1;
+                leftCamera.gameObject.SetActive(virtualCameraActive == -1);
+                rightCamera.gameObject.SetActive(virtualCameraActive != -1);
+                this.transform.localScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y, this.transform.localScale.z);
+            }
+        }
+        else
+        {
+            if (inputMovement < -0.5)
+            {
+                virtualCameraActive *= -1;
+                leftCamera.gameObject.SetActive(virtualCameraActive == -1);
+                rightCamera.gameObject.SetActive(virtualCameraActive != -1);
+                this.transform.localScale = new Vector3(this.transform.localScale.x * -1, this.transform.localScale.y, this.transform.localScale.z);
+            }
+        }
+        if ((inputMovement > 0 && inputMovement * 2 > virtualCameraActive) || (inputMovement < 0 && inputMovement * 2 < virtualCameraActive))
+        {
+
         }
 
         if (Input.GetKeyDown("space"))
@@ -142,9 +159,11 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("bowActive", false);
         bowActive = false;
-        if(arrow != null) {
+        if (arrow != null)
+        {
             arrow.GetComponent<Rigidbody2D>().isKinematic = false;
-            arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(1000,0), ForceMode2D.Force);
+            arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1000 * virtualCameraActive, 0), ForceMode2D.Force);
+            arrow.transform.SetParent(null);
             arrow = null;
         }
 
