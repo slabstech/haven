@@ -34,11 +34,25 @@ public class PlayerController : MonoBehaviour
 
     public int jumps = 2;
 
+    public int timeLeft ; //Seconds Overall
+    private int currentArrows = 5;
+
+    public int MAX_ARROWS = 10 ;
+
+    int spawm_arrows = 5;
+
+    int respawm_time = 10;
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
         rigid = this.GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();
+        StartCoroutine("LoseTime");
+        Time.timeScale = 1; //Just making sure that the timeScale is right
+        timeLeft = respawm_time;
     }
 
 
@@ -53,6 +67,11 @@ public class PlayerController : MonoBehaviour
         //    Vector3 lookDirecton = new Vector3(look.x, 0, look.y);
     }
 
+    void OnGUI () {
+        GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, 10, Screen.width / 4, Screen.height / 4 ) );
+        GUILayout.Box ( "Arrows->"+ currentArrows.ToString () + ": RespawnTime : " +  timeLeft); 
+        GUILayout.EndArea ();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -99,15 +118,18 @@ public class PlayerController : MonoBehaviour
             StartMeleeAttack();
         }
 
-        if (Input.GetButtonDown("Fire1") && bowActive == false)
+        if(currentArrows > 0)
         {
-            StartBowAttack();
-
-
-        }
-        if (Input.GetButtonUp("Fire1") && bowActive == true)
-        {
-            ShootBow();
+            if (Input.GetButtonDown("Fire1") && bowActive == false)
+            {
+                StartBowAttack();
+            }
+        
+            if (Input.GetButtonUp("Fire1") && bowActive == true)
+            {
+                ShootBow();
+                currentArrows--;
+            }
         }
 
         if (inAir == true)
@@ -178,5 +200,23 @@ public class PlayerController : MonoBehaviour
     {
         meleeActive = false;
 
+    }
+
+    
+  //Simple Coroutine
+    IEnumerator LoseTime()
+    {
+        while (true) {
+        yield return new WaitForSeconds (1);
+        timeLeft--; 
+        if(timeLeft < 1 )
+        {
+            timeLeft = respawm_time;
+            int arrowCount = currentArrows + spawm_arrows;
+            if((arrowCount) < MAX_ARROWS)
+                {currentArrows += spawm_arrows;
+                }
+        }
+        }
     }
 }
