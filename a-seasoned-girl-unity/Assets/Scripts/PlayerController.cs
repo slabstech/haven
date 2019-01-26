@@ -44,9 +44,16 @@ public class PlayerController : MonoBehaviour
 
     public int spawm_arrows = 5;
 
+
     public int respawm_time = 10;
     
     public GameObject[] enemies;
+
+    public string topGameDateStr = "" ;
+
+    public string bottomDialogStr = "" ;
+
+    public string bottomSpeakerStr = "" ;
 
     Vector3 startPosition;
     // Start is called before the first frame update
@@ -74,12 +81,41 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnGUI () {
+
         if( isArrowRespawm == true )
         {
-            GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, 10, Screen.width / 4, Screen.height / 4 ) );
-            GUILayout.Box ( "Arrows->"+ currentArrows.ToString () + ": RespawnTime : " +  timeLeft); 
-            GUILayout.EndArea ();
+            topGameDateStr = "Arrows : "+ currentArrows.ToString () + ", Respawn : " +  timeLeft ; 
+        
         }
+        else{
+            topGameDateStr = "Empty" ;
+        }
+
+        
+        GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, 10, Screen.width / 4, Screen.height / 4 ) );
+        GUILayout.Box ( topGameDateStr ); 
+        
+        GUILayout.EndArea ();
+
+
+    /*     bottomDialogStr = " ";
+
+        GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 8, Screen.height-Screen.height / 8 , Screen.width / 4, Screen.height / 4 ) );
+        GUILayout.Box ( bottomDialogStr ); 
+        
+        GUILayout.EndArea ();
+    */
+        bottomSpeakerStr = "Ori";
+
+        GUILayout.BeginArea ( new Rect( Screen.width/2-Screen.width / 6, Screen.height-Screen.height / 6 , Screen.width / 8, Screen.height / 8 ) );
+        GUILayout.Box ( bottomSpeakerStr ); 
+        
+        GUILayout.EndArea ();
+
+
+        
+
+
     }
     // Update is called once per frame
     void Update()
@@ -150,13 +186,33 @@ public class PlayerController : MonoBehaviour
         }
 
         IsGrounded();
+        checkSlope();
     }
 
     bool IsGrounded()
     {
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position + new Vector3(0, -0.05f, 0), Vector2.down);
         // Debug.DrawRay(transform.position + new Vector3(0, -0.03f, 0), Vector2.down, Color.red, 10f);
+
         return hit2D.distance < 0.2;
+    }
+
+    void checkSlope() {
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position + new Vector3(0.2f, 0.03f, 0), Vector2.down);
+        Debug.DrawRay(transform.position + new Vector3(0.2f, 0f, 0), Vector2.down, Color.red, 10f);
+
+
+        if (hit2D.collider != null && hit2D.normal.x < -0.1f) {
+             Rigidbody2D body = GetComponent<Rigidbody2D>();
+             // Apply the opposite force against the slope force 
+             // You will need to provide your own slopeFriction to stabalize movement
+             body.velocity = new Vector2((body.velocity.x - (hit2D.normal.x * 8f)), body.velocity.y) ;
+ 
+             //Move Player up or down to compensate for the slope below them
+             Vector3 pos = transform.position;
+             pos.y += -hit2D.normal.x * Mathf.Abs(body.velocity.x) * Time.deltaTime * (body.velocity.x - hit2D.normal.x > 0 ? 1 : -1);
+             transform.position = pos;
+         }
     }
 
     IEnumerator AddJumpingForce()
