@@ -286,9 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b58d37bc5925274891f9e8298be643b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementForce: 6
-  jumpForce: 180
-  maxSpeed: 6
+  movementForce: 16
+  jumpForce: 450
+  maxSpeed: 16
   inputMovement: 0
   leftCamera: {fileID: 0}
   rightCamera: {fileID: 0}
@@ -299,6 +299,7 @@ MonoBehaviour:
   bowActive: 0
   inAir: 0
   virtualCameraActive: -1
+  arrow: {fileID: 0}
 --- !u!50 &1877937191127367218
 Rigidbody2D:
   serializedVersion: 4
@@ -310,11 +311,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 0.3647386
-  m_LinearDrag: 1
+  m_UseAutoMass: 0
+  m_Mass: 0.5
+  m_LinearDrag: 3
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
