@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
@@ -13,7 +14,6 @@ public class StartScript : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
-        print("asd");
     }
 
     // Update is called once per frame
@@ -23,14 +23,14 @@ public class StartScript : MonoBehaviour
         {
             StartGame();
         }
+        
     }
 
     public void StartGame()
     {
         Time.timeScale = 1;
         GameObject.Find("StartCanvas").SetActive(false);
-        canvas.
-        SetActive(true);
+        canvas.SetActive(true);
     }
 
     public void QuitGame()

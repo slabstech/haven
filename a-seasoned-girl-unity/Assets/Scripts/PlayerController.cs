@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !bowActive)
         {
             StartBowAttack();
         }
@@ -173,6 +173,19 @@ public class PlayerController : MonoBehaviour
             {
                 currentArrows--;
             }
+        }
+
+        if (Input.GetKeyDown("1"))
+        {
+            SceneManager.LoadScene("TestScene-Sewer");
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            SceneManager.LoadScene("Level_City");
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            SceneManager.LoadScene("Level_FinalBedroom");
         }
 
         if (inAir == true)
@@ -211,18 +224,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator AddJumpingForce()
+    IEnumerator ResetBow()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
+            bowActive = false;
     }
 
     IEnumerator SpawnArrow()
     {
         yield return new WaitForSeconds(0.2f);
 
-        if (bowActive == true)
+
+        arrow = Instantiate<GameObject>(Resources.Load("Arrow", typeof(GameObject)) as GameObject, this.transform);
+        if (!Input.GetButton("Fire1"))
         {
-            arrow = Instantiate<GameObject>(Resources.Load("Arrow", typeof(GameObject)) as GameObject, this.transform);
+            ShootBow();
         }
     }
 
@@ -239,12 +255,10 @@ public class PlayerController : MonoBehaviour
 
     void ShootBow()
     {
-        animator.SetBool("bowActive", false);
-        bowActive = false;
-        StopCoroutine("SpawnArrow");
 
-        if (arrow != null)
+        if (arrow != null && !Input.GetButton("Fire1"))
         {
+            animator.SetBool("bowActive", false);
             arrow.GetComponent<Rigidbody2D>().isKinematic = false;
             arrow.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1000 * virtualCameraActive, 0), ForceMode2D.Force);
             arrow.transform.SetParent(null);
@@ -254,14 +268,18 @@ public class PlayerController : MonoBehaviour
 
             string audioClipName = "arrowFire";
             playSound(audioClipName);
+
+            StartCoroutine("ResetBow");
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "LevelEnd") {
+        if (other.gameObject.tag == "LevelEnd")
+        {
             SceneManager.LoadScene("Level_City");
         }
-        if(other.gameObject.tag == "LevelEnd2") {
+        if (other.gameObject.tag == "LevelEnd2")
+        {
             SceneManager.LoadScene("Level_FinalBedroom");
         }
     }
@@ -269,7 +287,7 @@ public class PlayerController : MonoBehaviour
     public void playSound(string audioClipName)
     {
         AudioSource audio = gameObject.AddComponent<AudioSource>();
-        audio.volume = 0.1f;
+        audio.volume = 1f;
         AudioClip clip = (AudioClip)Resources.Load(audioClipName);
         if (clip != null)
         {
