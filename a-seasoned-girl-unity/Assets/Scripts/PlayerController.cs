@@ -55,6 +55,10 @@ public class PlayerController : MonoBehaviour
 
     public string bottomSpeakerStr = "" ;
 
+    public GameObject healthBar; 
+    public GameObject healthBarBGFull; 
+    public GameObject healthBarBGEmpty; 
+
     Vector3 startPosition;
     // Start is called before the first frame update
     void Start()
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnGUI () {
+        
 
         if( isArrowRespawm == true )
         {
@@ -96,6 +101,13 @@ public class PlayerController : MonoBehaviour
         GUILayout.Box ( topGameDateStr ); 
         
         GUILayout.EndArea ();
+
+        healthBar.transform.localScale = new Vector3(currentLife / 100, 1,1);
+
+        if(currentLife < 30) {
+            healthBarBGFull.SetActive(false);
+            healthBarBGEmpty.SetActive(true);
+        }
 
 
     /*     bottomDialogStr = " ";
@@ -272,6 +284,10 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         transform.position = startPosition;
+        
+        currentLife = 100;
+        healthBarBGFull.SetActive(true);
+        healthBarBGEmpty.SetActive(false);
     }
 
     
