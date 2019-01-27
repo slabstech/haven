@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class BackgoundScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Sprite backgroundSprite;
-
-    public GameObject player;
+    GameObject player;
 
     public Vector3 playerStartPosition;
 
@@ -29,7 +26,7 @@ public class BackgoundScript : MonoBehaviour
     void Update()
     {
         float positionX = (playerStartPosition.x - player.transform.position.x) * speed;
-        positionX = positionX % xRepeat;//  f;
+        positionX = positionX % xRepeat;
         transform.localPosition = new Vector3(positionX, yOffset, 1f);
     }
 }
