@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: fd7cfc8e4bf5a3847a420469d4f43940
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Title_Screen_UI_0
+    21300000: Title
     21300002: Title_Screen_UI_1
     21300004: Title_Screen_UI_2
     21300006: Title_Screen_UI_3
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Title_Screen_UI_0
+      name: Title
       rect:
         serializedVersion: 2
         x: 2627
@@ -108,7 +108,7 @@ TextureImporter:
         width: 7166
         height: 2218
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,7 +128,7 @@ TextureImporter:
         width: 840
         height: 2450
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,12 +143,12 @@ TextureImporter:
       name: Title_Screen_UI_2
       rect:
         serializedVersion: 2
-        x: 876
+        x: 923
         y: 2296
         width: 3221
         height: 1448
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,7 +168,7 @@ TextureImporter:
         width: 3221
         height: 1448
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -188,7 +188,7 @@ TextureImporter:
         width: 863
         height: 1564
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

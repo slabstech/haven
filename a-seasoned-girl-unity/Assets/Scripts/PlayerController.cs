@@ -69,7 +69,6 @@ public class PlayerController : MonoBehaviour
         rigid = this.GetComponent<Rigidbody2D>();
         animator = this.GetComponent<Animator>();
         StartCoroutine("LoseTime");
-        Time.timeScale = 1; //Just making sure that the timeScale is right
         timeLeft = respawm_time;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         startPosition = transform.position;
