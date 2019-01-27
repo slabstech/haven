@@ -23,8 +23,6 @@ public class BackgoundScript : MonoBehaviour
         player = GameObject.Find("PlayerObject");
 
         playerStartPosition = player.transform.position;
-
-        // GameObject.Find("BGSprite1").gameObject.GetComponent<SpriteRenderer>().sprite = backgroundSprite;
     }
 
     // Update is called once per frame
