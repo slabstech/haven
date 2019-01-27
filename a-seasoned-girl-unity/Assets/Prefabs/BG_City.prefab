@@ -208,6 +208,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerStartPosition: {x: 0, y: 0, z: 0}
   speed: 1
+  xRepeat: 18.44
   yOffset: 0.3
 --- !u!1 &2132571586836420144
 GameObject:
