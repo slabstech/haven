@@ -259,8 +259,6 @@ public class PlayerController : MonoBehaviour
 
     public void playSound(string audioClipName)
     {
-
-
         AudioSource audio = gameObject.AddComponent<AudioSource>();
         AudioClip clip = (AudioClip)Resources.Load(audioClipName);
         if (clip != null)
