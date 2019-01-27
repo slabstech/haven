@@ -29,7 +29,8 @@ public class StartScript : MonoBehaviour
     {
         Time.timeScale = 1;
         GameObject.Find("StartCanvas").SetActive(false);
-        canvas.SetActive(true);
+        canvas.
+        SetActive(true);
     }
 
     public void QuitGame()
