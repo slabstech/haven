@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour
     public GameObject healthBarBGFull;
     public GameObject healthBarBGEmpty;
 
+    public int shotCount = 0;
+
     Vector3 startPosition;
     // Start is called before the first frame update
     void Start()
@@ -114,7 +116,8 @@ public class PlayerController : MonoBehaviour
         inputMovement = Input.GetAxis("Horizontal");
         animator.SetFloat("speed", Mathf.Abs(inputMovement));
 
-        if(inputMovement > 0) {
+        if (inputMovement > 0)
+        {
             checkSlope();
         }
 
@@ -158,12 +161,12 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Fire1") && bowActive == false)
+        if (Input.GetButtonDown("Fire1"))
         {
             StartBowAttack();
         }
 
-        if (Input.GetButtonUp("Fire1") && bowActive == true)
+        if (Input.GetButtonUp("Fire1"))
         {
             ShootBow();
             if (isArrowRespawm == true)
@@ -189,8 +192,6 @@ public class PlayerController : MonoBehaviour
     bool IsGrounded()
     {
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position + new Vector3(0, -0.05f, 0), Vector2.down);
-        // Debug.DrawRay(transform.position + new Vector3(0, -0.03f, 0), Vector2.down, Color.red, 10f);
-
         return hit2D.distance < 0.2;
     }
 
@@ -203,14 +204,10 @@ public class PlayerController : MonoBehaviour
         if (hit2D.collider != null && hit2D.normal.x < -0.1f)
         {
             Rigidbody2D body = GetComponent<Rigidbody2D>();
-            // Apply the opposite force against the slope force 
-            // You will need to provide your own slopeFriction to stabalize movement
             body.velocity = new Vector2((body.velocity.x - (hit2D.normal.x * 3f)), body.velocity.y);
 
-            //Move Player up or down to compensate for the slope below them
             Vector3 pos = transform.position;
             pos.y += -hit2D.normal.x * Mathf.Abs(body.velocity.x) * Time.deltaTime * (body.velocity.x - hit2D.normal.x > 0 ? 1 : -1);
-         //   transform.position = pos;
         }
     }
 
@@ -231,15 +228,20 @@ public class PlayerController : MonoBehaviour
 
     void StartBowAttack()
     {
-        animator.SetBool("bowActive", true);
-        bowActive = true;
-        StartCoroutine("SpawnArrow");
+        if (bowActive == false)
+        {
+            animator.SetBool("bowActive", true);
+            bowActive = true;
+            StartCoroutine("SpawnArrow");
+        }
+
     }
 
     void ShootBow()
     {
         animator.SetBool("bowActive", false);
         bowActive = false;
+        StopCoroutine("SpawnArrow");
 
         if (arrow != null)
         {
@@ -257,8 +259,6 @@ public class PlayerController : MonoBehaviour
 
     public void playSound(string audioClipName)
     {
-
-
         AudioSource audio = gameObject.AddComponent<AudioSource>();
         AudioClip clip = (AudioClip)Resources.Load(audioClipName);
         if (clip != null)
@@ -277,6 +277,11 @@ public class PlayerController : MonoBehaviour
         currentLife = 100;
         healthBarBGFull.SetActive(true);
         healthBarBGEmpty.SetActive(false);
+
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyScript>().Respawn();
+        }
     }
 
 
