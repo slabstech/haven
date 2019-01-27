@@ -66,6 +66,9 @@ public class EnemyScript : MonoBehaviour
                 this.transform.position -= (transform.position - player.transform.position + playerOffset).normalized / 20 * speed;
                 float yChange = Random.Range(0, 100) - 50;
                 this.transform.position += new Vector3(0, yChange / 5000, 0);
+
+                // play Incoming Music
+                playSound("enemyNearby");
             }
             else
             {
@@ -97,5 +100,18 @@ public class EnemyScript : MonoBehaviour
     void OnBecameVisible()
     {
         active = true;
+        playSound("enemySeen");
+    }
+
+    public void playSound(string audioClipName)
+    {
+            AudioSource audio = gameObject.AddComponent<AudioSource >();
+            AudioClip clip = (AudioClip)Resources.Load (audioClipName);
+            if (clip != null) {
+                audio.PlayOneShot (clip, 1.0F);
+            }
+            else {
+            Debug.Log ("AudioResourceMissing:" + audioClipName);
+            }       
     }
 }
