@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -253,6 +254,15 @@ public class PlayerController : MonoBehaviour
 
             string audioClipName = "arrowFire";
             playSound(audioClipName);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "LevelEnd") {
+            SceneManager.LoadScene("Level_City");
+        }
+        if(other.gameObject.tag == "LevelEnd2") {
+            SceneManager.LoadScene("Level_FinalBedroom");
         }
     }
 
