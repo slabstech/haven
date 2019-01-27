@@ -250,9 +250,25 @@ public class PlayerController : MonoBehaviour
             arrow.GetComponent<Collider2D>().isTrigger = true;
             arrow.GetComponent<Collider2D>().enabled = true;
             arrow = null;
+            
+            string audioClipName = "arrowFire" ;
+            playSound(audioClipName);
         }
     }
 
+    public void playSound(string audioClipName)
+    {
+        
+            
+            AudioSource audio = gameObject.AddComponent<AudioSource >();
+            AudioClip clip = (AudioClip)Resources.Load (audioClipName);
+            if (clip != null) {
+                audio.PlayOneShot (clip, 1.0F);
+            }
+            else {
+            Debug.Log ("AudioResourceMissing:" + audioClipName);
+            }       
+    }
     public void Die()
     {
         transform.position = startPosition;
