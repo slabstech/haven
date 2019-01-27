@@ -37,6 +37,7 @@ public class EnemyScript : MonoBehaviour
 
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = true;
+        audioSource.volume = 0.3f;
     }
 
     public void DamageEnemy(int damage)

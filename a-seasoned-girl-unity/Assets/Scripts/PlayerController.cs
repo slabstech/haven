@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButtonDown("Jump"))
         {
             if (jumps > 0)
             {
@@ -269,6 +269,7 @@ public class PlayerController : MonoBehaviour
     public void playSound(string audioClipName)
     {
         AudioSource audio = gameObject.AddComponent<AudioSource>();
+        audio.volume = 0.1f;
         AudioClip clip = (AudioClip)Resources.Load(audioClipName);
         if (clip != null)
         {
