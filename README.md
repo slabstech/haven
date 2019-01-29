@@ -18,4 +18,4 @@ Members:
 
 
 
-Android ver : [apk](https://github.com/sachinsshetty/haven/blob/master/releases/android/release1.apk) 
+Android ver : [apk](https://play.google.com/store/apps/details?id=com.slabstech.game.haven) 
