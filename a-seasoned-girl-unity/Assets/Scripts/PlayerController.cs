@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerController : MonoBehaviour
 {
@@ -113,7 +114,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputMovement = Input.GetAxis("Horizontal");
+        //inputMovement = Input.GetAxis("Horizontal");
+        inputMovement = CrossPlatformInputManager.GetAxis("Horizontal");
+
+
         animator.SetFloat("speed", Mathf.Abs(inputMovement));
 
         if (inputMovement > 0)
@@ -142,7 +146,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             if (jumps > 0)
             {
@@ -161,12 +165,12 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Fire1") && !bowActive)
+        if (CrossPlatformInputManager.GetButtonDown("Fire1") && !bowActive)
         {
             StartBowAttack();
         }
 
-        if (Input.GetButtonUp("Fire1"))
+        if (CrossPlatformInputManager.GetButtonUp("Fire1"))
         {
             ShootBow();
             if (isArrowRespawm == true)

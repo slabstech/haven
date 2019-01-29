@@ -1,0 +1,6 @@
+https://docs.unity3d.com/Manual/CollidersOverview.html
+
+https://unity3d.com/learn/tutorials/topics/physics/colliders
+
+https://unity3d.com/learn/tutorials/topics/2d-game-creation/collider-2d
+
